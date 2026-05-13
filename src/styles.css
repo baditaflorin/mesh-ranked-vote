@@ -1,6 +1,3 @@
-/* App-local styles. Mesh chrome (settings drawer, self-ref bar) is provided by
- * @baditaflorin/mesh-common/styles.css imported in main.tsx. */
-
 :root {
   color-scheme: dark;
 }
@@ -19,33 +16,322 @@ body,
   background: var(--mesh-bg);
   color: var(--mesh-fg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  -webkit-tap-highlight-color: transparent;
 }
 
-.feature-placeholder {
-  padding: 6rem 1.5rem 2rem;
-  text-align: center;
+.rcv-screen {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 6rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 }
 
-.feature-placeholder h1 {
+.rcv-header h1 {
   font-size: 1.6rem;
-  margin: 0;
+  margin: 0 0 0.25rem;
   color: var(--mesh-accent);
 }
 
-.feature-placeholder p {
-  max-width: 32rem;
+.rcv-status {
   margin: 0;
-  opacity: 0.85;
-  line-height: 1.5;
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
 
-.feature-status {
+.rcv-q-display {
+  display: block;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--mesh-fg);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.02rem;
+}
+
+.rcv-q-display em {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.rcv-q-edit {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.rcv-q-edit input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--mesh-fg);
+  border: 1px solid var(--mesh-accent);
+  border-radius: 0.4rem;
+}
+
+.rcv-q-edit button {
+  padding: 0.5rem 0.8rem;
+  background: transparent;
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.rcv-name input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.4rem;
+}
+
+.rcv-section-title {
   font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   opacity: 0.6;
+  margin: 0 0 0.4rem;
+}
+
+.rcv-empty {
+  opacity: 0.5;
+  font-style: italic;
+  margin: 0.2rem 0;
+}
+
+.rcv-rank-list {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.rcv-rank-item {
+  display: grid;
+  grid-template-columns: 1.7rem 1fr 2.2rem 2.2rem 2.2rem;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.7rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.4rem;
+}
+
+.rcv-rank-num {
+  font-weight: 700;
+  color: var(--mesh-accent);
   font-variant-numeric: tabular-nums;
+}
+
+.rcv-rank-label {
+  font-weight: 500;
+}
+
+.rcv-rank-item button {
+  background: transparent;
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.3rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.rcv-rank-item button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.rcv-unranked h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+  margin: 0.6rem 0 0.3rem;
+}
+
+.rcv-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.rcv-tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.55rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  font-size: 0.88rem;
+}
+
+.rcv-tags li button {
+  background: transparent;
+  color: var(--mesh-fg);
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0 0.2rem;
+}
+
+.rcv-tags li button:hover {
+  color: var(--mesh-accent);
+}
+
+.rcv-unranked .rcv-tags li {
+  padding: 0;
+  background: transparent;
+}
+
+.rcv-unranked .rcv-tags li button {
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  font-size: 0.88rem;
+}
+
+.rcv-unranked .rcv-tags li button:hover {
+  background: rgba(168, 85, 247, 0.18);
+  color: var(--mesh-accent);
+}
+
+.rcv-options-mgr {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.8rem;
+}
+
+.rcv-add {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.rcv-add input {
+  flex: 1;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.4rem;
+}
+
+.rcv-add button {
+  padding: 0.5rem 1rem;
+  background: var(--mesh-accent);
+  color: #0e1117;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.rcv-add button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rcv-tally {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.8rem;
+}
+
+.rcv-round {
+  margin-bottom: 0.8rem;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.5rem;
+}
+
+.rcv-round h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+  margin: 0 0 0.4rem;
+}
+
+.rcv-round ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rcv-round li {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0;
+  font-size: 0.92rem;
+}
+
+.rcv-round li.is-out {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.rcv-round li.is-winner {
+  color: var(--mesh-accent);
+  font-weight: 700;
+}
+
+.rcv-round-label {
+  font-weight: 500;
+}
+
+.rcv-round-bar-wrap {
+  background: rgba(255, 255, 255, 0.05);
+  height: 0.65rem;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.rcv-round-bar {
+  display: block;
+  height: 100%;
+  background: var(--mesh-accent);
+  transition: width 0.25s ease;
+}
+
+.rcv-round li.is-out .rcv-round-bar {
+  background: #ff6b6b;
+}
+
+.rcv-round-count {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+.rcv-eliminated,
+.rcv-exhausted {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.rcv-eliminated strong {
+  color: #ff6b6b;
+}
+
+.rcv-winner-banner {
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid var(--mesh-accent);
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.05rem;
 }
