@@ -108,6 +108,17 @@ function Body({ room, config }: { room: YRoom; config: MeshConfig }) {
     if (name) localStorage.setItem(NAME_KEY(config.storagePrefix), name);
   }, [name, config.storagePrefix]);
 
+  // Test-only handle: expose the live Yjs doc so e2e tests can seed a realistic
+  // ballot set (more than the 2 ballots two browser pages can cast through the
+  // keyed-by-peerId UI) into the SAME shared doc both peers render from. This is
+  // a plain reference — no behaviour change to the production render path.
+  useEffect(() => {
+    (window as unknown as { __rcvRoom?: typeof room }).__rcvRoom = room;
+    return () => {
+      delete (window as unknown as { __rcvRoom?: typeof room }).__rcvRoom;
+    };
+  }, [room]);
+
   useEffect(() => {
     const options = room.doc.getMap<Option>("options");
     const ballots = room.doc.getMap<Ballot>("ballots");
