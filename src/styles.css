@@ -39,6 +39,13 @@ body,
   font-size: 0.9rem;
 }
 
+.rcv-alone-hint {
+  margin: 0.3rem 0 0;
+  opacity: 0.55;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
 .rcv-q-display {
   display: block;
   width: 100%;

@@ -215,6 +215,12 @@ function Body({ room, config }: { room: YRoom; config: MeshConfig }) {
           {ballotList.length} {ballotList.length === 1 ? "ballot" : "ballots"} · {optionList.length}{" "}
           {optionList.length === 1 ? "option" : "options"} · {room.peerCount + 1} present
         </p>
+        {room.peerCount === 0 && ballotList.length <= 1 && (
+          <p className="rcv-alone-hint">
+            Just you here — open this link on another device (same room) and you both rank the same
+            options live.
+          </p>
+        )}
       </header>
 
       <div className="rcv-question">

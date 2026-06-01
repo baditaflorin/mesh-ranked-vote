@@ -16,7 +16,18 @@ Tip the dev: **https://www.paypal.com/paypalme/florinbadita**
 
 ## What it is
 
-Peer-to-peer browser app, no backend of its own beyond the self-hosted WebRTC stack listed below. Built on `@baditaflorin/mesh-common`, hosted on GitHub Pages from `docs/`.
+A shared ranked-choice (instant-runoff) poll that lives entirely in the browser — no account, no backend of its own beyond the self-hosted WebRTC stack listed below. Everyone in the same room sees the same options, drags them into their preferred order, and watches the instant-runoff tally recompute round by round: the last-place option is eliminated and its ballots transfer to each voter's next choice until something has a majority.
+
+Built on `@baditaflorin/mesh-common`, hosted on GitHub Pages from `docs/`.
+
+## Try it with two tabs
+
+1. Open the [live app](https://baditaflorin.github.io/mesh-ranked-vote/) in one tab.
+2. Tap the question to set one (e.g. "where do we eat?"), then add a few options.
+3. Open the **same URL in a second tab** (or send it to a friend's phone) — both are in room `default`, so the options appear instantly on both.
+4. In each tab, type a name and click options to build a ranking. The **live tally** at the bottom shows each instant-runoff round, eliminations, and the winner — identical on every screen.
+
+The settings drawer (⚙) lets you change the room id so separate groups don't collide.
 
 ## Quickstart (local)
 
